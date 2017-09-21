@@ -1,0 +1,10 @@
+/home/bodzaital/dotnet/aid-core/bin/Debug/netcoreapp2.0/aid-core.deps.json
+/home/bodzaital/dotnet/aid-core/bin/Debug/netcoreapp2.0/aid-core.runtimeconfig.json
+/home/bodzaital/dotnet/aid-core/bin/Debug/netcoreapp2.0/aid-core.runtimeconfig.dev.json
+/home/bodzaital/dotnet/aid-core/bin/Debug/netcoreapp2.0/aid-core.dll
+/home/bodzaital/dotnet/aid-core/bin/Debug/netcoreapp2.0/aid-core.pdb
+/home/bodzaital/dotnet/aid-core/obj/Debug/netcoreapp2.0/aid-core.csproj.CoreCompileInputs.cache
+/home/bodzaital/dotnet/aid-core/obj/Debug/netcoreapp2.0/aid-core.AssemblyInfoInputs.cache
+/home/bodzaital/dotnet/aid-core/obj/Debug/netcoreapp2.0/aid-core.AssemblyInfo.cs
+/home/bodzaital/dotnet/aid-core/obj/Debug/netcoreapp2.0/aid-core.dll
+/home/bodzaital/dotnet/aid-core/obj/Debug/netcoreapp2.0/aid-core.pdb
