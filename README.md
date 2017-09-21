@@ -10,3 +10,4 @@ You need dotnet core 2.0.0 to run or compile the app. To run the app, cd into th
 ## Future versions:
 - Changing the built in User Agent String and Accept String to circumvent bot prevention.
 - Ability to feed a list of links from a file, and download *everything*.
+- Export product data (name, price, description, rating, etc, photos, videos) into neatly formatted folders.
