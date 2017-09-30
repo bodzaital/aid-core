@@ -3,7 +3,7 @@ dotnet core port &amp; command line version of [amazon-image-downloader](https:/
 
 You need dotnet core 2.0.0 to run or compile the app. To run the app, cd into the project folder, and run `dotnet run`.
 
-By default, aid-core will download all available product images. To download video as well, add the -v flag. To display debug information in case of an error, add the -d flag. To define a custom user agent, use the -u flag, then, in double quotes, paste in your string. To define a custom accept string, use the -a flag, then, in double quotes, paste your string. To download a batch of links, use the -t flag, then give the name of the text file which contains one Amazon product link in a line.
+By default, aid-core will download all available product images. To download video as well, add the `-v` flag. To display debug information in case of an error, add the `-d` flag. To define a custom user agent, use the `-u` flag, then, in double quotes, paste in your string. To define a custom accept string, use the `-a` flag, then, in double quotes, paste your string. To download a batch of links, use the `-t` flag, then give the name of the text file which contains one Amazon product link in a line.
 
 ## Examples:
 
