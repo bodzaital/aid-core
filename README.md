@@ -1,13 +1,15 @@
 # aid-core
 dotnet core port &amp; command line version of [amazon-image-downloader](https://github.com/bodzaital/amazon-image-downloader).
 
-You need dotnet core 2.0.0 to run or compile the app. To run the app, cd into the project folder, and run `dotnet run`. If you want to download the product video as well, run `dotnet run -v` or `dotnet run --video` from the project folder.
+You need dotnet core 2.0.0 to run or compile the app. To run the app, cd into the project folder, and run `dotnet run`.
+
+By default, aid-core will download all available product images. To download video as well, add the -v flag. To display debug information in case of an error, add the -d flag. To define a custom user agent, use the -u flag, then, in double quotes, paste in your string. To define a custom accept string, use the -a flag, then, in double quotes, paste your string. To download a batch of links, use the -t flag, then give the name of the text file which contains one Amazon product link in a line.
+
+## Examples:
+
+- Download video: `dotnet run -v`
+- Download a batch of files with custom user agent and accept string: `dotnet run -t list.txt -u "user-agent" -a "accept-string"`
+- Download a batch of files, and display any error message in length: `dotnet run -t list.txt -d`
 
 ## Known bugs:
-- If you start with the `-v` or `--video` flag, but there is no video on the product page, the app will exit with an error.
 - If there are no images, the app will exit with an error.
-
-## Future versions:
-- Changing the built in User Agent String and Accept String to circumvent bot prevention.
-- Ability to feed a list of links from a file, and download *everything*.
-- Export product data (name, price, description, rating, etc, photos, videos) into neatly formatted folders.
