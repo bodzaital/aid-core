@@ -5,7 +5,7 @@ You need dotnet core 2.0.0 to run or compile the app. To run the app, cd into th
 
 By default, aid-core will download all available product images. To download video as well, add the `-v` flag. To display debug information in case of an error, add the `-d` flag. To define a custom user agent, use the `-u` flag, then, in double quotes, paste in your string. To define a custom accept string, use the `-a` flag, then, in double quotes, paste your string. To download a batch of links, use the `-t` flag, then give the name of the text file which contains one Amazon product link in a line.
 
-Default user-agent: `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36`
+Default user-agent: `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36`  
 Default accept: `text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8`
 
 ## Examples:
