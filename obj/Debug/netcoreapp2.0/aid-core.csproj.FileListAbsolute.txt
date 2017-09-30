@@ -8,3 +8,14 @@
 /home/bodzaital/dotnet/aid-core/obj/Debug/netcoreapp2.0/aid-core.AssemblyInfo.cs
 /home/bodzaital/dotnet/aid-core/obj/Debug/netcoreapp2.0/aid-core.dll
 /home/bodzaital/dotnet/aid-core/obj/Debug/netcoreapp2.0/aid-core.pdb
+C:\Users\HP\Documents\Dotnet\aid-core\bin\Debug\netcoreapp2.0\aid-core.deps.json
+C:\Users\HP\Documents\Dotnet\aid-core\bin\Debug\netcoreapp2.0\aid-core.runtimeconfig.json
+C:\Users\HP\Documents\Dotnet\aid-core\bin\Debug\netcoreapp2.0\aid-core.runtimeconfig.dev.json
+C:\Users\HP\Documents\Dotnet\aid-core\bin\Debug\netcoreapp2.0\aid-core.dll
+C:\Users\HP\Documents\Dotnet\aid-core\bin\Debug\netcoreapp2.0\aid-core.pdb
+C:\Users\HP\Documents\Dotnet\aid-core\obj\Debug\netcoreapp2.0\aid-core.csproj.CoreCompileInputs.cache
+C:\Users\HP\Documents\Dotnet\aid-core\obj\Debug\netcoreapp2.0\aid-core.AssemblyInfoInputs.cache
+C:\Users\HP\Documents\Dotnet\aid-core\obj\Debug\netcoreapp2.0\aid-core.AssemblyInfo.cs
+C:\Users\HP\Documents\Dotnet\aid-core\obj\Debug\netcoreapp2.0\aid-core.dll
+C:\Users\HP\Documents\Dotnet\aid-core\obj\Debug\netcoreapp2.0\aid-core.pdb
+C:\Users\HP\Documents\Dotnet\aid-core\obj\Debug\netcoreapp2.0\aid-core.csprojResolveAssemblyReference.cache
