@@ -16,26 +16,34 @@ namespace aid_core2
 	{
 		static void Main(string[] args)
 		{
-			Uri uri = new Uri("https://www.amazon.com/French-Connection-Whisper-Sleeveless-Strappy/dp/B07BFRVY11");
-			bool detectAlreadyExist = false;
+			string uriArgument = args[Array.IndexOf(args, "-u") + 1];
+
+			Uri uri = new Uri(uriArgument);
+			bool detectAlreadyExist = !args.Contains("-!");
 
 			string product = GetProductName(uri);
 			if (detectAlreadyExist && Directory.Exists(product))
 			{
-				Console.WriteLine($"Images of this product are already present.\nRemove or rename directory \"{product}\" and restart to download them.");
+				Console.WriteLine($"Images of this product are already present.\nRemove or rename directory \"{product}\" and restart to download them\nor use -! flag to override this setting.");
 			}
 			else
 			{
-				string source = GetSource(uri);
+				string source;
+				try
+				{
+					source = GetSource(uri);
+				}
+				catch (Exception)
+				{
+					Console.WriteLine("503: Service Unavailable.\nThe server refused the connection. Try again later.");
+					return;
+				}
 				Uri[] imageUris = GetImageLinks(source);
 				Uri[] videoUris = GetVideoLinks(source);
 				DownloadImages(uri, imageUris);
 				DownloadVideos(uri, videoUris);
-
 				Console.WriteLine("Done.");
 			}
-
-			Console.ReadLine();
 		}
 
 		/// <summary>
@@ -128,8 +136,16 @@ namespace aid_core2
 
 			int start = uri.ToString().IndexOf(START_DETECT) + START_DETECT.Length;
 			int end = uri.ToString().IndexOf(END_DETECT, start);
+			string name;
 
-			string name = uri.ToString().Substring(start, end - start);
+			try
+			{
+				name = uri.ToString().Substring(start, end - start);
+			}
+			catch (Exception)
+			{
+				name = uri.ToString().Replace('/', '-').Replace(':', '-');
+			}
 
 			return name;
 		}
