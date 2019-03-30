@@ -18,13 +18,25 @@ namespace aid_core2
 		{
 			Uri uri = new Uri("https://www.amazon.com/French-Connection-Whisper-Sleeveless-Strappy/dp/B07BFRVY11");
 
-			Uri[] uris = GetImageLinks(uri);
-			DownloadImages(uris);
+			string product = GetProductName(uri);
+			if (Directory.Exists(product))
+			{
+				Console.WriteLine($"Images of this product are already present.\nRemove or rename directory \"{product}\" and restart to download them.");
+			}
+			else
+			{
+				Uri[] uris = GetImageLinks(uri);
+				DownloadImages(uri, uris);
+				Console.WriteLine("Done.");
+			}
 
-			Console.WriteLine("Done.");
 			Console.ReadLine();
 		}
 
+		/// <summary>
+		/// Gets the page source from the given URI.
+		/// </summary>
+		/// <param name="uri">The URI of the product page.</param>
 		private static string GetSource(Uri uri)
 		{
 			using (WebClient client = new WebClient())
@@ -47,6 +59,10 @@ namespace aid_core2
 			}
 		}
 
+		/// <summary>
+		/// Extracts high resolution image links from the page source.
+		/// </summary>
+		/// <param name="uri">The URI of the product page.</param>
 		private static Uri[] GetImageLinks(Uri uri)
 		{
 			string source = GetSource(uri);
@@ -80,16 +96,40 @@ namespace aid_core2
 			return uris;
 		}
 
-		private static void DownloadImages(Uri[] uris)
+		/// <summary>
+		/// Downloads the high resolution images.
+		/// </summary>
+		/// <param name="imageUris">An array of URIs of images.</param>
+		private static void DownloadImages(Uri productUri, Uri[] imageUris)
 		{
+			string product = GetProductName(productUri);
+			Directory.CreateDirectory(product);
 			using (WebClient client = new WebClient())
 			{
-				for (int i = 0; i < uris.Length; i++)
+				for (int i = 0; i < imageUris.Length; i++)
 				{
-					client.DownloadFile(uris[i].ToString(), $"{i}.jpg");
-					Console.WriteLine($"Downloaded to {i}.jpg");
+					client.DownloadFile(imageUris[i].ToString(), $"{product}/{i}.jpg");
+					Console.WriteLine($"Downloaded to {product}/{i}.jpg");
 				}
 			}
+
+		}
+
+		/// <summary>
+		/// Extracts the product name from the product URI.
+		/// </summary>
+		/// <param name="uri">The URI of the product page.</param>
+		private static string GetProductName(Uri uri)
+		{
+			const string START_DETECT = ".com/";
+			const string END_DETECT = "/dp/";
+
+			int start = uri.ToString().IndexOf(START_DETECT) + START_DETECT.Length;
+			int end = uri.ToString().IndexOf(END_DETECT, start);
+
+			string name = uri.ToString().Substring(start, end - start);
+
+			return name;
 		}
 	}
 }
