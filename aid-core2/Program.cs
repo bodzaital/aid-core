@@ -17,16 +17,21 @@ namespace aid_core2
 		static void Main(string[] args)
 		{
 			Uri uri = new Uri("https://www.amazon.com/French-Connection-Whisper-Sleeveless-Strappy/dp/B07BFRVY11");
+			bool detectAlreadyExist = false;
 
 			string product = GetProductName(uri);
-			if (Directory.Exists(product))
+			if (detectAlreadyExist && Directory.Exists(product))
 			{
 				Console.WriteLine($"Images of this product are already present.\nRemove or rename directory \"{product}\" and restart to download them.");
 			}
 			else
 			{
-				Uri[] uris = GetImageLinks(uri);
-				DownloadImages(uri, uris);
+				string source = GetSource(uri);
+				Uri[] imageUris = GetImageLinks(source);
+				Uri[] videoUris = GetVideoLinks(source);
+				DownloadImages(uri, imageUris);
+				DownloadVideos(uri, videoUris);
+
 				Console.WriteLine("Done.");
 			}
 
@@ -63,10 +68,8 @@ namespace aid_core2
 		/// Extracts high resolution image links from the page source.
 		/// </summary>
 		/// <param name="uri">The URI of the product page.</param>
-		private static Uri[] GetImageLinks(Uri uri)
+		private static Uri[] GetImageLinks(string source)
 		{
-			string source = GetSource(uri);
-
 			const string START_DETECT = "P.when('A').register(\"ImageBlockATF\", function(A){";
 			const string END_DETECT = "A.trigger('P.AboveTheFold'); // trigger ATF event.";
 			const string REFINED_START_DETECT = "{";
@@ -108,11 +111,10 @@ namespace aid_core2
 			{
 				for (int i = 0; i < imageUris.Length; i++)
 				{
-					client.DownloadFile(imageUris[i].ToString(), $"{product}/{i}.jpg");
-					Console.WriteLine($"Downloaded to {product}/{i}.jpg");
+					client.DownloadFile(imageUris[i].ToString(), $"{product}/image_{i}.jpg");
+					Console.WriteLine($"Downloaded to {product}/image_{i}.jpg");
 				}
 			}
-
 		}
 
 		/// <summary>
@@ -130,6 +132,50 @@ namespace aid_core2
 			string name = uri.ToString().Substring(start, end - start);
 
 			return name;
+		}
+
+		private static Uri[] GetVideoLinks(string source)
+		{
+			const string START_DETECT = "P.when('A','jQuery').execute('triggerVideoAjax'";
+			const string END_DETECT = "A.trigger('triggerVideoAjax',obj.videos);";
+
+			int start = source.IndexOf(START_DETECT) + START_DETECT.Length;
+			int end = source.IndexOf(END_DETECT, start);
+
+			string substring = source.Substring(start, end - start);
+
+			const string REFINED_START_DETECT = "jQuery.parseJSON('";
+			const string REFINED_END_DETECT = "');";
+
+			start = substring.IndexOf(REFINED_START_DETECT) + REFINED_START_DETECT.Length;
+			end = substring.IndexOf(REFINED_END_DETECT, start);
+
+			substring = substring.Substring(start, end - start);
+
+			// Deserializing the JSON object to a dynamic variable.
+			Console.WriteLine("Deserializing.");
+			dynamic a = JsonConvert.DeserializeObject(substring);
+			Uri[] uris = new Uri[a.videos.Count];
+			for (int i = 0; i < uris.Length; i++)
+			{
+				uris[i] = a.videos[i].url;
+			}
+
+			return uris;
+		}
+
+		private static void DownloadVideos(Uri productUri, Uri[] videoUris)
+		{
+			string product = GetProductName(productUri);
+			Directory.CreateDirectory(product);
+			using (WebClient client = new WebClient())
+			{
+				for (int i = 0; i < videoUris.Length; i++)
+				{
+					client.DownloadFile(videoUris[i].ToString(), $"{product}/video_{i}.mp4");
+					Console.WriteLine($"Downloaded to {product}/video_{i}.mp4");
+				}
+			}
 		}
 	}
 }
