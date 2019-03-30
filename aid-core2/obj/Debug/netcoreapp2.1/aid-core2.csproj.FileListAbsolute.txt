@@ -1,0 +1,11 @@
+C:\Users\Zsolt\Documents\GitHub\aid-core\aid-core2\bin\Debug\netcoreapp2.1\aid-core2.deps.json
+C:\Users\Zsolt\Documents\GitHub\aid-core\aid-core2\bin\Debug\netcoreapp2.1\aid-core2.runtimeconfig.json
+C:\Users\Zsolt\Documents\GitHub\aid-core\aid-core2\bin\Debug\netcoreapp2.1\aid-core2.runtimeconfig.dev.json
+C:\Users\Zsolt\Documents\GitHub\aid-core\aid-core2\bin\Debug\netcoreapp2.1\aid-core2.dll
+C:\Users\Zsolt\Documents\GitHub\aid-core\aid-core2\obj\Debug\netcoreapp2.1\aid-core2.csprojAssemblyReference.cache
+C:\Users\Zsolt\Documents\GitHub\aid-core\aid-core2\obj\Debug\netcoreapp2.1\aid-core2.csproj.CoreCompileInputs.cache
+C:\Users\Zsolt\Documents\GitHub\aid-core\aid-core2\obj\Debug\netcoreapp2.1\aid-core2.AssemblyInfoInputs.cache
+C:\Users\Zsolt\Documents\GitHub\aid-core\aid-core2\obj\Debug\netcoreapp2.1\aid-core2.AssemblyInfo.cs
+C:\Users\Zsolt\Documents\GitHub\aid-core\aid-core2\bin\Debug\netcoreapp2.1\aid-core2.pdb
+C:\Users\Zsolt\Documents\GitHub\aid-core\aid-core2\obj\Debug\netcoreapp2.1\aid-core2.dll
+C:\Users\Zsolt\Documents\GitHub\aid-core\aid-core2\obj\Debug\netcoreapp2.1\aid-core2.pdb
