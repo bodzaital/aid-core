@@ -19,11 +19,7 @@ namespace aid_core2
 			Uri uri = new Uri("https://www.amazon.com/French-Connection-Whisper-Sleeveless-Strappy/dp/B07BFRVY11");
 
 			Uri[] uris = GetImageLinks(uri);
-			
-			foreach (Uri link in uris)
-			{
-				Console.WriteLine(link);
-			}
+			DownloadImages(uris);
 
 			Console.WriteLine("Done.");
 			Console.ReadLine();
@@ -86,7 +82,14 @@ namespace aid_core2
 
 		private static void DownloadImages(Uri[] uris)
 		{
-
+			using (WebClient client = new WebClient())
+			{
+				for (int i = 0; i < uris.Length; i++)
+				{
+					client.DownloadFile(uris[i].ToString(), $"{i}.jpg");
+					Console.WriteLine($"Downloaded to {i}.jpg");
+				}
+			}
 		}
 	}
 }
