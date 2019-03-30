@@ -19,11 +19,5 @@ Default accept: `text/html,application/xhtml+xml,application/xml;q=0.9,image/web
 - Download a batch of files with custom user agent and accept string: `dotnet run -t list.txt -u "user-agent" -a "accept-string"`
 - Download a batch of files, and display any error message in length: `dotnet run -t list.txt -d`
 
-Example output:
-
-![Console output](https://i.imgur.com/tc3Qsyx.png)
-
-![Downloaded images](https://i.imgur.com/dClgoHJ.png)
-
 ## Known bugs:
 - If there are no images, the app will exit with an error.
