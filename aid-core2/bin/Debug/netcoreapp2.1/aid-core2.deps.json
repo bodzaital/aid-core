@@ -1,14 +1,15 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "f5857f76110157b6d9e540aa821c900a6b5dc71a"
+    "signature": "474493650744d1ae79bd3882f6a37e7fbe741719"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.1": {
       "aid-core2/1.0.0": {
         "dependencies": {
-          "HtmlAgilityPack": "1.11.1"
+          "HtmlAgilityPack": "1.11.1",
+          "Newtonsoft.Json": "12.0.1"
         },
         "runtime": {
           "aid-core2.dll": {}
@@ -25,6 +26,14 @@
           "lib/netstandard2.0/HtmlAgilityPack.dll": {
             "assemblyVersion": "1.11.1.0",
             "fileVersion": "1.11.1.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/12.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.1.22727"
           }
         }
       },
@@ -619,6 +628,13 @@
       "sha512": "sha512-CvDUUk+53WRYkM8ZyZS0+mYqqSkCT1qUqPHVMMcDTrmRBYrwvBSDh/akRlhy3W+BsRhbmz4AuIHHVOEyS2u3zA==",
       "path": "htmlagilitypack/1.11.1",
       "hashPath": "htmlagilitypack.1.11.1.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jmVyoEyk0In8r+AObYQyFKVFm7uSRzE0XSHSbEtBJcZDMV6DqJoyB4FLcHwprPVhAh826so0db3DIKXVnpGoPA==",
+      "path": "newtonsoft.json/12.0.1",
+      "hashPath": "newtonsoft.json.12.0.1.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
