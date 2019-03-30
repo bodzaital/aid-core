@@ -18,9 +18,9 @@ namespace aid_core2
 		{
 			Uri uri = new Uri("https://www.amazon.com/French-Connection-Whisper-Sleeveless-Strappy/dp/B07BFRVY11");
 
-			string[] uris = GetImageLinks(uri);
+			Uri[] uris = GetImageLinks(uri);
 			
-			foreach (string link in uris)
+			foreach (Uri link in uris)
 			{
 				Console.WriteLine(link);
 			}
@@ -51,7 +51,7 @@ namespace aid_core2
 			}
 		}
 
-		private static string[] GetImageLinks(Uri uri)
+		private static Uri[] GetImageLinks(Uri uri)
 		{
 			string source = GetSource(uri);
 
@@ -75,7 +75,7 @@ namespace aid_core2
 			// Deserializing the JSON object to a dynamic variable.
 			Console.WriteLine("Deserializing.");
 			dynamic a = JsonConvert.DeserializeObject(substring);
-			string[] uris = new string[a.colorImages.initial.Count];
+			Uri[] uris = new Uri[a.colorImages.initial.Count];
 			for (int i = 0; i < uris.Length; i++)
 			{
 				uris[i] = a.colorImages.initial[i].hiRes;
