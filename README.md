@@ -17,3 +17,5 @@ Amazon's servers may refuse the connection (503 error). Simply retry again. If t
 - The app parses the JSON object using JSON.net instead of half-assed regex.
 - Amazon delivers the source code using gzip, so it is decompressed.
 - Much cleaner code, less prone to exceptions.
+
+A WebExtension version is available [here](https://github.com/bodzaital/aid-core-js).
