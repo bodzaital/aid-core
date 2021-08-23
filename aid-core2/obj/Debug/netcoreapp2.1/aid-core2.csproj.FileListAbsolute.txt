@@ -9,3 +9,4 @@ C:\Users\Zsolt\Documents\GitHub\aid-core\aid-core2\obj\Debug\netcoreapp2.1\aid-c
 C:\Users\Zsolt\Documents\GitHub\aid-core\aid-core2\bin\Debug\netcoreapp2.1\aid-core2.pdb
 C:\Users\Zsolt\Documents\GitHub\aid-core\aid-core2\obj\Debug\netcoreapp2.1\aid-core2.dll
 C:\Users\Zsolt\Documents\GitHub\aid-core\aid-core2\obj\Debug\netcoreapp2.1\aid-core2.pdb
+C:\Users\Zsolt\Documents\GitHub\aid-core\aid-core2\obj\Debug\netcoreapp2.1\aid-core2.genruntimeconfig.cache

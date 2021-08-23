@@ -97,14 +97,18 @@ namespace aid_core2
 
 			// Deserializing the JSON object to a dynamic variable.
 			Console.WriteLine("Deserializing.");
-			dynamic a = JsonConvert.DeserializeObject(substring);
-			Uri[] uris = new Uri[a.colorImages.initial.Count];
-			for (int i = 0; i < uris.Length; i++)
+			var coll = Regex.Matches(substring, @"https[\w ./,:-]*\.jpg");
+			List<Uri> uris = new List<Uri>();
+			foreach (var item in coll)
 			{
-				uris[i] = a.colorImages.initial[i].hiRes;
+				string uri = item.ToString();
+				if (uri.Contains("1500"))
+				{
+					uris.Add(new Uri(uri));
+				}
 			}
 
-			return uris;
+			return uris.ToArray();
 		}
 
 		/// <summary>
